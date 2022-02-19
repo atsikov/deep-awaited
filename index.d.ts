@@ -27,9 +27,50 @@ type WrapPromiseCatch = <TResult = never>(
     | null,
 ) => WrappedPromise<TResult> & WrappedAwaited<TResult>
 
+type WrapReturnType<T> = WrappedAwaited<AwaitedResult<WrapArray<T>>>
+
+// Wrap functions with up to 4 overloads
+type WrapFunction<T> = T extends {
+  (...params: infer P1): infer R1
+  (...params: infer P2): infer R2
+  (...params: infer P3): infer R3
+  (...params: infer P4): infer R4
+}
+  ? {
+      (...params: P1): WrapReturnType<R1>
+      (...params: P2): WrapReturnType<R2>
+      (...params: P3): WrapReturnType<R3>
+      (...params: P4): WrapReturnType<R4>
+    }
+  : T extends {
+      (...params: infer P1): infer R1
+      (...params: infer P2): infer R2
+      (...params: infer P3): infer R3
+    }
+  ? {
+      (...params: P1): WrapReturnType<R1>
+      (...params: P2): WrapReturnType<R2>
+      (...params: P3): WrapReturnType<R3>
+    }
+  : T extends {
+      (...params: infer P1): infer R1
+      (...params: infer P2): infer R2
+    }
+  ? {
+      (...params: P1): WrapReturnType<R1>
+      (...params: P2): WrapReturnType<R2>
+    }
+  : T extends {
+      (...params: infer P1): infer R1
+    }
+  ? {
+      (...params: P1): WrapReturnType<R1>
+    }
+  : T
+
 type WrappedString = {
   [K in keyof string]: string[K] extends (...params: infer P) => infer R
-    ? (...params: P) => WrappedAwaited<AwaitedResult<WrapArray<R>>>
+    ? WrapFunction<string[K]>
     : () => string[K]
 }
 

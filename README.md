@@ -17,10 +17,11 @@ Library is written in ES6 with provided TypeScript definitions. `deep-awaited` i
 
 The only method exported from the library. It wraps the provided promise so that you could immediately access properties of a value to be resolved.
 
-### Limitation
+### Limitations
 
-In order to have a nice chaining, each non-function field is wrapped with a function. Same comes to array elements access.
- If you use TypeScript, the provided definitions will take care of it.
+- In order to have a nice chaining, each non-function field is wrapped with a function. Same comes to array elements access. If you use TypeScript, the correct function types will be returned from definitions.
+- Literal types are not preserved because of primitives rewrapping
+
 ## Examples
 
 Access the required field in a fetched json
