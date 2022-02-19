@@ -19,8 +19,8 @@ The only method exported from the library. It wraps the provided promise so that
 
 ### Limitation
 
-In order to have a nice chaining, each non-function field is wrapped with a function. If you us TypeScript, the provided definitions will take care of it. Same comes to array element access.
-
+In order to have a nice chaining, each non-function field is wrapped with a function. Same comes to array elements access.
+ If you use TypeScript, the provided definitions will take care of it.
 ## Examples
 
 Access the required field in a fetched json
