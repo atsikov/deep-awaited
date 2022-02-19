@@ -1,0 +1,17 @@
+{
+  "name": "deep-awaited",
+  "version": "1.0.0",
+  "description": "Promise wrapper to await the deeply nested promises",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "repository": "https://github.com/atsikov/deep-awaited",
+  "author": "Aleksei Tsikov <alexey.tsikov@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "27.4.0",
+    "jest": "27.5.1",
+    "prettier": "2.5.1",
+    "ts-jest": "27.1.3",
+    "typescript": "4.4.4"
+  }
+}
