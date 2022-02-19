@@ -1,6 +1,6 @@
 {
   "name": "deep-awaited",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Promise wrapper to await the deeply nested promises",
   "main": "index.js",
   "types": "index.d.ts",

@@ -24,5 +24,5 @@ function deepAwaited(value) {
   })
 }
 
-module.exports = { deepAwaited }
-module.exports.default = deepAwaited
+module.exports = deepAwaited
+module.exports.deepAwaited = deepAwaited
