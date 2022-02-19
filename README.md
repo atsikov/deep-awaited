@@ -39,5 +39,8 @@ await deepAwaited(fetch("/user/info")).json().name().split(" ")[0]() // resolves
 Chain asynchronous calls in end-to-end tests (eg Playwright)
 
 ```js
-await findByRole(page, "button").click()
+import { queries } from 'playwright-testing-library
+const findByRole = (...params) => deepAwaited(queries.findByRole(...params))
+
+await findByRole($document, "button").click()
 ```
